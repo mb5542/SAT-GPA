@@ -24,3 +24,40 @@ plt.show()
 # Linear regression model lr_math that will describe the relationship between math_SAT and high_GPA
 lr_math = LinearRegression()
 lr_math.fit(X = data['math_SAT'].values.reshape(-1,1), y = data['high_GPA'].values)
+
+
+# Chart presenting regression line data overlaid on a scatter plot
+x_min = data['math_SAT'].min()
+x_max = data['math_SAT'].max()
+
+plt.figure(figsize=(7,5))
+plt.scatter(data['math_SAT'], data['high_GPA'], color='b')
+plt.plot([x_min, x_max],lr_math.predict([[x_min],[x_max]]), color='r')
+plt.show()
+
+
+# Scatter plot showing the relationship between math_SAT and high_GPA
+plt.figure(figsize=(7,5))
+plt.scatter(data['verb_SAT'], data['high_GPA'], color='g')
+plt.show()
+
+# Linear regression model lr_math that will describe the relationship between math_SAT and high_GPA
+lr_verb = LinearRegression()
+lr_verb.fit(X = data['verb_SAT'].values.reshape(-1,1), y = data['high_GPA'].values)
+
+# Chart presenting regression line data overlaid on a scatter plot
+x_min = data['verb_SAT'].min()
+x_max = data['verb_SAT'].max()
+
+plt.figure(figsize=(7,5))
+plt.scatter(data['verb_SAT'], data['high_GPA'], color='g')
+plt.plot([x_min, x_max],lr_verb.predict([[x_min],[x_max]]), color='r')
+plt.show()
+
+# Linear regression model working on two input variables (math_SAT and verbal_SAT)
+
+
+
+
+
+
