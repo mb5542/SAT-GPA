@@ -56,8 +56,11 @@ plt.show()
 
 # Linear regression model working on two input variables (math_SAT and verbal_SAT)
 
+lr = LinearRegression()
+lr.fit(data[['math_SAT','verb_SAT']].values, data['high_GPA'].values.reshape(-1,1))
 
 
-
-
-
+# Predicting High_GPA for specific student
+student_john = np.array([600,650]).reshape(1,2)
+john_score = lr.predict(student_john).item()
+print(f'Student John will receive a grade of : {john_score:.2f}')
